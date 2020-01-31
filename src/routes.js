@@ -1,15 +1,13 @@
 const express = require('express');
-const router = express.Router();
-const port = 3000;
-const app = express();
+const router = require('express');
+const routenotfound = require('./routenotfound')
 
 
-app.get('/curriculo',(req, res, next) => {
+app.get('/api/curriculo',(req, res,) => {
     res.render('curriculo');
 });
 
+router.use(routenotfound)
+
 module.exports = router;
 
-app.use(function (req, res, next) {
-    res.status(404).send("Sorry can't find that!")
-})
